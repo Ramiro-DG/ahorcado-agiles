@@ -1,8 +1,10 @@
 import { expect, test } from "vitest";
 import { Ahorcado } from "./ahorcado";
 
-const ahc = new Ahorcado("dia")
+const ahc = new Ahorcado("Dia")
 
-test("Adivinar 'dia'", () => expect(ahc.adivinar("dia")).toBe(true));
+test("Adivinar 'Dia'", () => expect(ahc.adivinar("Dia")).toBe(true));
+test("Adivinar 'Dio'", () => expect(ahc.adivinar("Dio")).toBe(false));
 
-test('Validar que una la letra este en la palabra', () => expect(ahc.adivinar("d")).toBe(true));
+test("Adivinar letra 'a'", () => expect(ahc.adivinar_letra("a")).toBe(true));
+test("Adivinar letra 'b'", () => expect(ahc.adivinar_letra("b")).toBe(false));
