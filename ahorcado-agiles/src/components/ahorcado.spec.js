@@ -2,6 +2,9 @@ import { expect, test } from "vitest";
 import { Ahorcado } from "./ahorcado";
 
 const ahc = new Ahorcado("Dia")
+
+test("Palabra a adivinar: Dia, array_palabra_a_adivinar: ['-', '-', '-']", 
+    () => expect(ahc.array_palabra_a_adivinar).toEqual(['-', '-', '-']));
 test("Adivinar 'Dia'", () => expect(ahc.adivinar("Dia")).toBe(true));
 test("Adivinar 'Dio'", () => expect(ahc.adivinar("Dio")).toBe(false));
 test("Adivinar letra 'a'", () => expect(ahc.adivinar_letra("a")).toBe(true));
@@ -13,6 +16,13 @@ test("Adivinar letra perteneciente, intentos intactos",()=>{
     ahorcado.adivinar_letra("a")
     expect(ahorcado.intentos_restantes).toBe(7)
 })
+test("Adivinar letra perteneciente dos veces, intentos intactos",()=>{
+    let ahorcado = new Ahorcado("palabra")
+    ahorcado.adivinar_letra("a")
+    ahorcado.adivinar_letra("a") // Te deja intentar letras que ya adivinaste, pero no te quita intentos
+    expect(ahorcado.intentos_restantes).toBe(7)
+})
+
 test("Adivinar letra no perteneciente, intentos -1",()=>{
     let ahorcado = new Ahorcado("palabra")
     ahorcado.adivinar_letra("d")
