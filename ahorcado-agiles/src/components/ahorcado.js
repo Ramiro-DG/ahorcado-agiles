@@ -10,6 +10,7 @@ export class Ahorcado {
     }
 
     adivinar_letra(letra) {
+        letra=letra.toLowerCase();
         // Si la letra no esta dentro de letras, solo se retorna false
         if (!this.letras.includes(letra)) return false;
 
@@ -32,6 +33,7 @@ export class Ahorcado {
     }
 
     adivinar(palabra) {
+        palabra = palabra.toLowerCase();
         if (palabra !== this.palabra_a_adivinar) {
             this.intentos_restantes -= 1;
             return false
