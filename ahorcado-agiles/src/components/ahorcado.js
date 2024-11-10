@@ -5,7 +5,7 @@ export class Ahorcado {
     letras = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
     constructor(palabra_secreta) {
-        this.palabra_a_adivinar = palabra_secreta
+        this.palabra_a_adivinar = palabra_secreta.toLowerCase();
         this.array_palabra_a_adivinar = Array(this.palabra_a_adivinar.length).fill("-")
     }
 
