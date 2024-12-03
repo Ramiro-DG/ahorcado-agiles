@@ -1,30 +1,46 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+    import { onMounted } from 'vue';
+    let array_palabra_a_adivinar = ref([""]);
+    let intentos_restantes = ref(0);
 
-interface GameResponse {
-    array_palabra_a_adivinar: string[];
-    intentos_restantes: number;
-}
+    interface GameResponse {
+        array_palabra_a_adivinar: string[];
+        intentos_restantes: number;
+    }
 
-onMounted(async () => {
-    console.log('Mounted /gaming');
-    let response: GameResponse = await $fetch('/api/startGame');
-    console.log(response.array_palabra_a_adivinar);
-    console.log(response.intentos_restantes);
-});
+    onMounted(async () => {
+        console.log('Mounted /gaming');
+        let response: GameResponse = await $fetch('/api/startGame');
+        array_palabra_a_adivinar.value = response.array_palabra_a_adivinar;
+        intentos_restantes.value = response.intentos_restantes;
+    });
 
-let guessLetter = async (event: any) => {
-    console.log('Guessing letter:', event.target.id);
-    let response:GameResponse = await $fetch('/api/guess?letter=' + event.target.id[0], { method: 'GET' });
+    let guessLetter = async (event: any) => {
+        console.log('Guessing letter:', event.target.id);
+        let response:GameResponse = await $fetch('/api/guess?letter=' + event.target.id[0], { method: 'GET' });
+        array_palabra_a_adivinar.value = await response.array_palabra_a_adivinar;
+        intentos_restantes.value = await response.intentos_restantes;
+        console.log(response.array_palabra_a_adivinar);
+        console.log(response.intentos_restantes);
+        checkStatus();
+    };
 
-};
+    async function guessWord(palabra: string) {
+        console.log('Guessing word:', palabra);
+        let response: GameResponse = await $fetch('/api/guess?word='+palabra);
+        checkStatus();
+    }
 
-async function guessWord(palabra: string) {
-    console.log('Guessing word:', palabra);
-    let response: GameResponse = await $fetch('/api/guess?word='+palabra);
-    console.log(response.array_palabra_a_adivinar);
-    console.log(response.intentos_restantes);
-}
+    function checkStatus() {
+        console.log('Checking status');
+        if(intentos_restantes.value <= 0) {
+        alert('Perdiste :_(');
+            navigateTo('/');
+        } else if(array_palabra_a_adivinar.value.indexOf('-') === -1) {
+            alert('Ganaste! :D');
+            navigateTo('/');
+        }
+    }
 </script>
 
 <template>
@@ -33,8 +49,9 @@ async function guessWord(palabra: string) {
         <h2>Intentos restantes: {{intentos_restantes}}</h2>
         <h2>Palabra a adivinar: {{array_palabra_a_adivinar}}</h2>
     </div>
-
-    <button id="a" @click="guessLetter">Guess A</button>
-    <button id="b" @click="guessLetter">Guess B</button>
-    <button id="p" @click="guessLetter">Guess p</button>
+    <div>
+        <button v-for="letter in 'abcdefghijklmnopqrstuvwxyz'" :key="letter" :id="letter" @click="guessLetter">
+            Guess {{ letter.toUpperCase() }}
+        </button>
+    </div>
 </template>

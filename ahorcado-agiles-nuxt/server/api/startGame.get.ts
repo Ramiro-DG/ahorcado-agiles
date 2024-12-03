@@ -7,6 +7,5 @@ export default defineEventHandler((event) => {
   return {
     array_palabra_a_adivinar: ahorcado_instance.array_palabra_a_adivinar,
     intentos_restantes: ahorcado_instance.intentos_restantes,
-    palabra_secreta: ahorcado_instance.palabra_a_adivinar,
   };
 });
