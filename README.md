@@ -4,6 +4,6 @@
 # Remaining
 * [x] Armar Endpoints
 * [ ] Integrar Front placeholder con final
-* [ ] Implementar Analisis Estatico de Codigo (SonarCloud?)
+* [x] Implementar Analisis Estatico de Codigo (SonarCloud?)
 * [ ] Terminar Cucumber con Selenium/Puppeteer
 * [ ] Deploy en Vercel
