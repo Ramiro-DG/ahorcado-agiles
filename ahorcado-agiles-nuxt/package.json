@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "nuxt": "^3.14.1592",
+    "puppeteer": "^23.10.1",
     "vue": "latest",
     "vue-router": "latest"
   },
@@ -22,6 +23,7 @@
     "@vitest/coverage-v8": "^2.1.8",
     "@vue/test-utils": "^2.4.6",
     "happy-dom": "^15.11.7",
+    "selenium-webdriver": "^4.27.0",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"
   }

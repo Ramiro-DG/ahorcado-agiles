@@ -46,8 +46,8 @@
 <template>
     <h1>/gaming</h1>
     <div>
-        <h2>Intentos restantes: {{intentos_restantes}}</h2>
-        <h2>Palabra a adivinar: {{array_palabra_a_adivinar}}</h2>
+        <h2>Intentos restantes: <strong id="intentos_restantes">{{intentos_restantes}}</strong></h2>
+        <p id="letras_mostradas">{{array_palabra_a_adivinar}}</p>
     </div>
     <div>
         <button v-for="letter in 'abcdefghijklmnopqrstuvwxyz'" :key="letter" :id="letter" @click="guessLetter">
