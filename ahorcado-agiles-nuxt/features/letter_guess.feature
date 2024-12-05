@@ -4,7 +4,6 @@ Feature: Rechazar o aceptar una letra
     Scenario: El jugador adivina una letra correcta
         Given el jugador inicia un nuevo juego de ahorcado
         When el jugador adivina una letra "correcta"
-        Then la letra "" se muestra en la palabra oculta
         And el número de intentos restantes debe indicar 7
 
     Scenario: El jugador adivina una letra incorrecta

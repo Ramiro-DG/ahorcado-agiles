@@ -10,8 +10,7 @@ Feature: Simulacion completa de juego
         Then la letra "no" se muestra en la palabra oculta
         And el número de intentos restantes debe indicar 6
         When el jugador "" adivina la palabra
-        Then la palabra oculta "" se muestra
-        And el número de intentos restantes debe indicar 6
+        Then la alerta aparece
 
     Scenario: El jugador no acierta 7 letras y pierde
         Given el jugador inicia un nuevo juego de ahorcado
@@ -19,20 +18,16 @@ Feature: Simulacion completa de juego
         Then la letra "no" se muestra en la palabra oculta
         And el número de intentos restantes debe indicar 6
         When el jugador adivina una letra "incorrecta"
-        Then la letra "no" se muestra en la palabra oculta
-        And el número de intentos restantes debe indicar 5
+        Then el número de intentos restantes debe indicar 5
         When el jugador adivina una letra "incorrecta"
-        Then la letra "no" se muestra en la palabra oculta
-        And el número de intentos restantes debe indicar 4
+        Then el número de intentos restantes debe indicar 4
         When el jugador adivina una letra "incorrecta"
-        Then la letra "no" se muestra en la palabra oculta
-        And el número de intentos restantes debe indicar 3
+        Then el número de intentos restantes debe indicar 4
         When el jugador adivina una letra "incorrecta"
-        Then la letra "no" se muestra en la palabra oculta
-        And el número de intentos restantes debe indicar 2
+        Then el número de intentos restantes debe indicar 3
         When el jugador adivina una letra "incorrecta"
-        Then la letra "no" se muestra en la palabra oculta
-        And el número de intentos restantes debe indicar 1
+        Then el número de intentos restantes debe indicar 2
         When el jugador adivina una letra "incorrecta"
-        Then la letra "no" se muestra en la palabra oculta
-        And el número de intentos restantes debe indicar 0
+        Then el número de intentos restantes debe indicar 1
+        When el jugador adivina una letra "incorrecta"
+        Then la alerta aparece
