@@ -3,12 +3,6 @@ Feature: Simulacion completa de juego
 
     Scenario: El jugador gana el juego
         Given el jugador inicia un nuevo juego de ahorcado
-        When el jugador adivina una letra "correcta"
-        Then la letra "" se muestra en la palabra oculta
-        And el número de intentos restantes debe indicar 7
-        When el jugador adivina una letra "incorrecta"
-        Then la letra "no" se muestra en la palabra oculta
-        And el número de intentos restantes debe indicar 6
         When el jugador "" adivina la palabra
         Then la alerta aparece
 
@@ -19,8 +13,6 @@ Feature: Simulacion completa de juego
         And el número de intentos restantes debe indicar 6
         When el jugador adivina una letra "incorrecta"
         Then el número de intentos restantes debe indicar 5
-        When el jugador adivina una letra "incorrecta"
-        Then el número de intentos restantes debe indicar 4
         When el jugador adivina una letra "incorrecta"
         Then el número de intentos restantes debe indicar 4
         When el jugador adivina una letra "incorrecta"

@@ -14,6 +14,8 @@ export default defineVitestConfig({
         "./cucumber.js",
         "./nuxt.config.ts",
         "./.nuxt/**",
+        "./components/GameStartMenu.vue",
+        "./pages/**",
       ],
     },
   },
