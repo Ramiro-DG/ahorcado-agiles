@@ -4,7 +4,7 @@ import { Ahorcado } from "../../components/functionality/ahorcado.js";
 import puppeteer, { Browser, Page } from "puppeteer";
 
 let ahorcado = new Ahorcado("palabras");
-const base_URL = "http://localhost:3000";
+const base_URL = "https://ahorcado-agiles.vercel.app/";
 const letras_correctas = ["p", "a", "l", "b", "r", "s"];
 const letras_incorrectas = [
   "z",
