@@ -50,7 +50,7 @@
         <p id="letras_mostradas">{{array_palabra_a_adivinar}}</p>
     </div>
     <div>
-        <button v-for="letter in 'abcdefghijklmnopqrstuvwxyz'" :key="letter" :id="letter" @click="guessLetter">
+        <button v-for="letter in 'abcdefghijklmnopqrstuvwxyz'" :key="letter" :id="letter" :class="letter" @click="guessLetter">
             Guess {{ letter.toUpperCase() }}
         </button>
     </div>
